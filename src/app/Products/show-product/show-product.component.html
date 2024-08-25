@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 my-3">
+      <div class="card bg-dark text-white">
+        <div class="card-img bg-dark">
+          <img
+            src="{{ Product.imageCover }}"
+            alt=""
+            id="productImage"
+            class="img-fluid rounded"
+          />
+        </div>
+        <div class="card-body text-center">
+          <h6>Title :{{ Product.title }}</h6>
+          <h6>
+            Price : <del class="text-white">{{ Product.price }}</del> <br />
+            <span class="fw-bold"> {{ Product.priceAfterDiscount }}</span>
+          </h6>
+          <h6>Description : {{ Product.description }}</h6>
+          <h6>Solded : {{ Product.sold }}</h6>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 my-2 d-flex flex-column justify-content-center">
+      <div class="card p-5 bg-dark text-white text-center">
+        <div class="card-body">
+          <h3>{{ Product.category.name }} Category</h3>
+          <hr />
+          <h3>{{ Product.brand.name }} Brand</h3>
+          <button (click)="AddToCart(Product.id)" class="btn btn-outline-light rounded-pill mt-3 fs-5 mx-3">
+            Add To Cart <i class="fs-5 px-3 bi bi-cart-plus-fill"></i>
+          </button>
+          <button (click)="AddToWishList(Product.id)" class="btn btn-outline-light rounded-pill mt-3 fs-5">
+            Add To Wish List <i class="fs-5 px-3 bi bi-card-list"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container my-4">
+  <div class="row">
+    <div
+      class="col-md-4 my-2 d-flex flex-column justify-content-center"
+      *ngFor="let item of Product.images"
+    >
+      <div class="card bg-dark">
+        <div class="card-img overflow-hidden">
+          <img
+            src="{{ item }}"
+            alt=""
+            id="subImages"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  #productImage {
+    height: 400px !important;
+    display: block;
+    margin: 0 auto;
+    padding: 5px 0px;
+  }
+  #subImages {
+    scale: 0.92;
+    transition: all 1s;
+    cursor: pointer;
+    height: 250px !important;
+    margin: 0 auto;
+    display: block;
+  }
+  #subImages:hover {
+    scale: 1.2;
+  }
+</style>

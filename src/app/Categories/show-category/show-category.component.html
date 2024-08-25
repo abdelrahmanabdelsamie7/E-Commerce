@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="container col-md-6">
+  <div class="card bg-dark shadow-lg">
+    <div class="card-img">
+      <img src="{{ Category.image }}" class="img-fluid rounded py-3" />
+    </div>
+    <div class="card-body text-center text-white">
+      <h3>{{ Category.name }} Category</h3>
+      <button
+        routerLink="/showAllSubCategories/{{ Category._id }}"
+        class="btn btn-outline-light mx-auto d-block rounded-pill"
+      >
+        Show All Sub Categories
+      </button>
+    </div>
+  </div>
+</div>
+<style>
+  img {
+    height: 350px !important;
+    display: block;
+    margin: 0 auto;
+  }
+</style>

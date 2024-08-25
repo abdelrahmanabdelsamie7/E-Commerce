@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 my-2" *ngFor="let item of AllSubCategories">
+      <div class="card bg-dark p-5 shadow-lg">
+        <div class="card-body text-center text-white">
+          <h6>
+            Category Name : <br />
+            {{ item.name }}
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

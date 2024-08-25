@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="container col-md-6">
+  <h3 class="text-center my-3 fw-bold">List Of All Users</h3>
+  <table class="table table-dark table-striped table-hover">
+    <thead>
+      <tr class="text-center">
+        <th># :</th>
+        <th>User Name :</th>
+        <th>User E-mail :</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center" *ngFor="let item of AllUsers; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

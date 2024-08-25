@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="container col-md-6">
+  <div class="card p-4 bg-dark">
+    <h3 class="text-center fs-5 my-3 text-white">User Name : {{ userName }}</h3>
+    <h3 class="text-center fs-5 my-3 text-white">E-mail : {{ email }}</h3>
+
+    <a routerLink="/MyAddresses" class="text-decoration-none">
+      <h3 class="text-center fs-5 my-3 text-white">
+        Your Addresses<i class="bi bi-geo"></i></h3
+    ></a>
+
+    <div
+      class="card-body"
+      *ngIf="token == null; then Outed; else Entered"
+    ></div>
+  </div>
+</div>
+<ng-template #Entered>
+  <a
+    routerLink="/AddYourAddress"
+    class="d-block mx-auto my-2 btn btn-outline-primary fs-6"
+  >
+    Add Your Address <i class="px-2 bi bi-geo-alt"></i>
+  </a>
+  <a
+    (click)="signOut()"
+    class="btn d-block mx-auto my-3 btn-outline-light fs-5 float-end"
+    >SignOut</a
+  >
+  <a
+    routerLink="/ForgetPassword"
+    class="text-center text-warning text-decoration-none"
+    >Forget Password</a
+  >
+  <a
+    routerLink="/AllUsers"
+    class="float-start text-secondary text-decoration-none"
+    ><i title="AllUsers" class="fs-4 mt-5 bi bi-people-fill"></i
+  ></a>
+  <a
+    routerLink="/AllOrders"
+    class="float-end text-secondary text-decoration-none"
+    ><i title="AllOrders" class="fs-4 mt-5 bi bi-bag-fill"></i
+  ></a>
+</ng-template>
+
+<ng-template #Outed>
+  <a
+    routerLink="/SignIn"
+    class="btn d-block mx-auto my-3 btn-outline-light fs-5 float-start"
+    >SignIn</a
+  >
+  <a
+    routerLink="/SignUp"
+    class="btn d-block mx-auto my-3 btn-outline-light fs-5 float-end"
+    >SignUp</a
+  >
+</ng-template>

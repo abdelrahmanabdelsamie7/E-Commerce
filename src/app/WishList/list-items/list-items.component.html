@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h3 class="text-center my-3 fw-bold">List Of Items In Wish List :  {{ itemCount }}</h3>
+</div>
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-4 my-2" *ngFor="let item of WishListOfItems">
+      <div class="card bg-dark text-white shadow-lg border-0" id="cardProduct">
+        <div class="card-img">
+          <img
+            src="{{ item.imageCover }}"
+            id="imgProduc"
+            class="img-fluid"
+          />
+        </div>
+        <div class="card-body text-center p-4">
+          <h5>Product : {{ item.title }}</h5>
+          <h5>Price : {{ item.price }}</h5>
+          <hr />
+          <h5>
+            Brand : {{ item.brand.name }}
+            <img
+              src="{{ item.brand.image }}"
+              width="45px"
+              class="img-fluid"
+            />
+          </h5>
+          <hr />
+          <h5>
+            Category : {{ item.category.name }}
+            <img
+              src="{{ item.category.image }}"
+              width="45px"
+              class="img-fluid"
+            />
+          </h5>
+          <hr />
+
+
+           <button
+            (click)="removeItem(item.id)"
+            class="btn btn-outline-danger rounded-2 my-2 mx-auto d-block"
+          >
+            Remove Item
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

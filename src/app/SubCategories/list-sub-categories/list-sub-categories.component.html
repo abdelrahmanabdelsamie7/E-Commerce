@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="container col-md-8">
+  <div class="card bg-dark">
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr class="text-center">
+          <th># :</th>
+          <th>Category :</th>
+          <th>Action :</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="text-center"
+          *ngFor="let item of AllSubCategories; index as i"
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.name }}</td>
+          <td>
+            <button
+              class="btn btn-outline-secondary rounded-2"
+              routerLink="/Show_SubCategory/{{ item._id }}"
+            >
+              <i class="bi bi-eye"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

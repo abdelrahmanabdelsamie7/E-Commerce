@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<h3 class="text-center fw-bold my-4">Add Your Address</h3>
+<div class="container col-md-6">
+  <div class="card bg-dark text-white p-3">
+    <div class="form-group">
+      <label for="name">Address Name : </label>
+      <input
+        name="name"
+        [(ngModel)]="address.name"
+        type="text"
+        class="form-control mb-3"
+      />
+    </div>
+    <div class="form-group">
+      <label for="details">Address Details : </label>
+      <input
+        name="details"
+        [(ngModel)]="address.details"
+        type="text"
+        class="form-control mb-3"
+      />
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone :</label>
+      <input
+        name="phone"
+        [(ngModel)]="address.phone"
+        type="text"
+        class="form-control mb-3"
+      />
+    </div>
+    <div class="form-group">
+      <label for="city">City :</label>
+      <input
+        name="city"
+        [(ngModel)]="address.city"
+        type="text"
+        class="form-control mb-3"
+      />
+    </div>
+    <div class="d-grid">
+      <button
+        (click)="submitInfo()"
+        class="btn btn-outline-light fs-5 rounded-3 my-2"
+      >
+        Submit Info
+      </button>
+    </div>
+  </div>
+</div>

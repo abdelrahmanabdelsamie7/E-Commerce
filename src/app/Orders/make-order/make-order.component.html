@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<h3 class="text-center fw-bold mt-4">Confirm Your Order</h3>
+<p class="text-center fs-4 fw-bold">In This Address :</p>
+<div class="container col-md-6">
+  <div class="card bg-dark p-3">
+    <div class="form-group">
+      <label for="" class="text-white py-2">Confirm Your Home Details : </label
+      ><input [(ngModel)]="details" type="text" class="form-control mb-2" />
+    </div>
+    <div class="form-group">
+      <label for="" class="text-white py-2">Confirm Your Phone : </label
+      ><input [(ngModel)]="phone" type="text" class="form-control mb-2" />
+    </div>
+    <div class="form-group">
+      <label for="" class="text-white py-2">Confirm Your City </label
+      ><input [(ngModel)]="city" type="text" class="form-control mb-2" />
+    </div>
+    <div class="d-grid">
+      <button (click)="confirmOrder()" class="btn btn-outline-light my-3 fs-6">
+        Submit Info
+      </button>
+    </div>
+       <div class="d-grid">
+      <button (click)="checkOut()" class="btn btn-outline-light my-3 fs-6">
+        Check Out
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+
+<h3 class="text-center fw-bold my-4">List Of All Oreders</h3>
+
+<div class="container col-md-6">
+  <div class="card">
+    <table class="table  table-dark table-hover table-striped">
+      <thead>
+        <tr>
+          <th>User Name :</th>
+          <th>User Phone :</th>
+          <th>Total Order Price :</th>
+          <th>Payment Method :</th>
+          <th>City :</th>
+          <th>Details :</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of AllOrders">
+          <td>{{ item.user.name }}</td>
+          <td>{{ item.user.phone }} OR {{ item.shippingAddress.phone }}</td>
+          <td>{{ item.totalOrderPrice }}</td>
+          <td>{{ item.paymentMethodType }}</td>
+          <td>{{ item.shippingAddress.city }}</td>
+          <td>{{ item.shippingAddress.details }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

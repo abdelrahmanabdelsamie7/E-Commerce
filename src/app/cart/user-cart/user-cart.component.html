@@ -1,0 +1,94 @@
+<app-navbar></app-navbar>
+<style>
+  #cardProduct {
+    height: auto;
+  }
+</style>
+<div class="container col-md-4">
+  <h1 class="text-center fw-bold my-4">Your Products In Cart</h1>
+  <div class="card text-center text-white bg-dark">
+    <div class="card-body">
+      <h3 class="fs-6 my-3 fw-bold">
+        Number Of Cart Items : {{ numOfCartItems }}
+      </h3>
+      <h3 class="fs-6 my-3 fw-bold">Total Cart Price : {{ totalCartPrice }}</h3>
+      <button
+        routerLink="/MakeOrder/{{ CartId }}"
+        class="btn btn-outline-secondary rounded-pill my-3 mx-auto d-block"
+      >
+        Make Order
+      </button>
+      <button
+        (click)="removeAllItems()"
+        class="btn btn-outline-danger rounded-pill my-3 mx-auto d-block"
+      >
+        Remove All Items
+      </button>
+      <a routerLink="/MyOrders" class="btn btn-outline-light my-1 rounded-pill fs-5"
+        >Your Orders</a
+      >
+    </div>
+  </div>
+</div>
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-4 my-2" *ngFor="let item of cartItems">
+      <div class="card bg-dark text-white shadow-lg border-0" id="cardProduct">
+        <div class="card-img">
+          <img
+            src="{{ item.product.imageCover }}"
+            id="imgProduc"
+            class="img-fluid"
+          />
+        </div>
+        <div class="card-body text-center p-4">
+          <h5>Product : {{ item.product.title }}</h5>
+          <h5>Price : {{ item.price }}</h5>
+          <hr />
+          <h5>
+            Brand : {{ item.product.brand.name }}
+            <img
+              src="{{ item.product.brand.image }}"
+              width="45px"
+              class="img-fluid"
+            />
+          </h5>
+          <hr />
+          <h5>
+            Category : {{ item.product.category.name }}
+            <img
+              src="{{ item.product.category.image }}"
+              width="45px"
+              class="img-fluid"
+            />
+          </h5>
+          <hr />
+          <label for="count">Count Of Product : {{ item.count }} </label>
+          <select
+            name=""
+            [(ngModel)]="newCount"
+            id="count"
+            class="form-control my-3 bg-dark text-white"
+          >
+            <option disabled selected>{{ item.count }}</option>
+            <option *ngFor="let number of numbers">
+              {{ number }}
+            </option>
+          </select>
+          <button
+            (click)="removeItem(item.product.id)"
+            class="btn btn-outline-danger rounded-2 my-2 mx-auto d-block"
+          >
+            Remove Item
+          </button>
+          <button
+            (click)="updateItem(item.product.id)"
+            class="btn btn-outline-warning rounded-2 my-2 mx-auto d-block"
+          >
+            Update Count Item
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

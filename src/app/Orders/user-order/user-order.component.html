@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+<h3 class="text-center fw-bold my-4">My Orders</h3>
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-6 my-2 shadow-lg" *ngFor="let item of MyOrders">
+      <div class="card bg-dark text-center text-white">
+        <h3>Total Orders Price : {{ item.totalOrderPrice }}</h3>
+        <h3 *ngIf="item.isDelivered == false">It Dosen't Delivered Yet !</h3>
+        <h3 *ngIf="item.isDelivered == true">It Delivered</h3>
+        <div class="card-img my-2" *ngFor="let cartItem of item.cartItems">
+          <img
+            src="{{ cartItem.product.imageCover }}"
+            width="80px"
+            alt=""
+            class="img-fluid"
+          />
+          <h6>Count : {{ cartItem.count }}</h6>
+          <h5>Product Title : {{ cartItem.product.title }}</h5>
+          <h5>
+            Brand :{{ cartItem.product.brand.name }}
+            <img
+              src="{{ cartItem.product.brand.image }}"
+              width="48px"
+              height="48px"
+            />
+          </h5>
+          <h5>
+            Category : {{ cartItem.product.category.name }}
+            <img
+              src="{{ cartItem.product.category.image }}"
+              width="48px"
+              height="48px"
+            />
+          </h5>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container col-md-10">
+  <table class="table table-dark table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Order Num :</th>
+        <th>Total Order Price :</th>
+        <th>Is Delivered :</th>
+        <th>IS Paid :</th>
+        <th colspan="10" class="text-center fw-bold">Cart Items :</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of MyOrders; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.totalOrderPrice }}</td>
+        <td>{{ item.isDelivered }}</td>
+        <td>{{ item.isPaid }}</td>
+        <td>
+          {{ item.cartItems.length }}
+        </td>
+        <td *ngFor="let cartItem of item.cartItems">
+          <img
+            id="imgItem"
+            title="Title : {{ cartItem.product.title }} & {{ cartItem.price }} Price "
+            src="{{ cartItem.product.imageCover }}"
+            width="45"
+            height="45"
+            alt=""
+            class="img-fluid"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <style>
+    img{
+      cursor: pointer;
+    }
+  </style>
+</div>
+
+
